@@ -23,7 +23,7 @@ function Footer() {
         </a>
       </nav>
 
-      <span className="font-light text-sm py-2">&copy; Norbert Budzyński 2022</span>
+      <span className="font-light text-sm py-2">&copy; Norbert Budzyński 2023</span>
     </footer>
   );
 }

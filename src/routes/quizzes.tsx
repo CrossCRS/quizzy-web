@@ -43,8 +43,8 @@ function Quizzes() {
   return (
     <>
       <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
-      {quizzes.data.quizzes.map((quiz: any) =>
-        <QuizCard key={quiz.id} id={quiz.id} title={quiz.title} author={quiz.author.name} questionCount={quiz.questionCount}>
+      {quizzes.data.map((quiz: any) =>
+        <QuizCard key={quiz.id} id={quiz.id} title={quiz.title} author={'TODO'} questionsCount={quiz.questionsCount}>
           {quiz.description}
         </QuizCard>,
       )}

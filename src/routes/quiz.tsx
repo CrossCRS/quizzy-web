@@ -38,7 +38,7 @@ function Quiz() {
 
   const processAnswer = (answerId: number) => {
     addAnswer(quiz.data.questions[currentQuestion].id, answerId);
-    if (currentQuestion < quiz.data.questionCount - 1) {
+    if (currentQuestion < quiz.data.questionsCount - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       navigate('result', { state: userAnswers });
@@ -49,7 +49,7 @@ function Quiz() {
     <>
       <h1 className='text-gray-400 text-center m-0 mb-8'>{quiz.data.title}</h1>
       <Box>
-        <QuestionPanel question={quiz.data.questions[currentQuestion]} onSendAnswer={processAnswer} isLastQuestion={currentQuestion == quiz.data.questionCount - 1} />
+        <QuestionPanel question={quiz.data.questions[currentQuestion]} onSendAnswer={processAnswer} isLastQuestion={currentQuestion == quiz.data.questionsCount - 1} />
       </Box>
     </>
   );
