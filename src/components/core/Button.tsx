@@ -21,7 +21,7 @@ interface Props {
 
 function Button({ className = '', color = '', type = 'button', onClick = undefined, disabled = false, basic = false, block = false, link = false, to = '', children, ...other } : Props) {
   const btnClasses = classNames({
-    'px-4 py-2 border border-transparent rounded shadow-sm font-semibold text-center': true,
+    'px-4 py-2 leading-tight border border-transparent rounded shadow-sm font-semibold text-center': true,
     'focus:outline-none focus:ring': !disabled,
     'text-white hover:text-white': !disabled && !basic,
     'bg-blue-500 hover:bg-blue-600 focus:ring-blue-200': !disabled && !basic && !color,
