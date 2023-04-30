@@ -16,6 +16,8 @@ function useFetch(url: string, options: FetchOptions = {}) {
   const [isLoading, setIsLoading] = useState(true);
 
   const execute = useCallback(() => {
+    setIsLoading(true);
+    
     let promise;
 
     if (method === 'GET') {
