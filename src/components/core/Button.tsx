@@ -34,8 +34,15 @@ function Button({ className = '', color = '', type = 'button', onClick = undefin
     'bg-red-500 hover:bg-red-600 focus:ring-red-200': !disabled && !basic && color === 'red',
     'bg-red-400 hover:bg-red-600 focus:ring-red-200': !disabled && !basic && color === 'lightred',
 
+    'text-gray-900': !disabled && basic,
+    'text-emerald-500': !disabled && basic && color === 'emerald',
+    'text-green-500': !disabled && basic && color === 'green',
+    'text-green-400': !disabled && basic && color === 'lightgreen',
+    'text-red-500': !disabled && basic && color === 'red',
+    'text-red-400': !disabled && basic && color === 'lightred',
+
     'bg-gray-100 text-gray-400 cursor-default focus:outline-none': disabled,
-    'bg-gray-200 hover:bg-gray-300 focus:ring-gray-100 text-gray-900': !disabled && !color && basic,
+    'bg-gray-200 hover:bg-gray-300 focus:ring-gray-100': !disabled && basic,
     [`${className}`]: className,
   });
 

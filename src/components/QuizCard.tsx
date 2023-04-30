@@ -17,7 +17,10 @@ function QuizCard(props: Props) {
       <h4 className='m-0'>{props.title}</h4>
       <span className='font-light text-sm'>by <strong>{props.author}</strong> &middot; {props.questionsCount} questions</span>
       <span className='my-4'>{props.children}</span>
-      <Button block link to={`/quizzes/${props.id}`} color='emerald'>Play</Button>
+      {props.questionsCount > 0
+        ? <Button block link to={`/quizzes/${props.id}`} color='emerald'>Play</Button>
+        : <Button block disabled link to={`/quizzes/${props.id}`} color='emerald'>Play</Button>
+      }
     </Box>
   );
 }

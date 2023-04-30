@@ -4,9 +4,9 @@ export function useQuiz(quizId: string) {
   return useFetch(`/quizzes/${quizId}`);
 }
 
-export function useQuizzes(page: string, immediate: boolean = true) {
-  if (!page) page = '1';
-  return useFetch(`/quizzes?page=${page}`, { immediate: immediate });
+export function useQuizzes(page: number, immediate: boolean = true) {
+  if (!page) page = 1;
+  return useFetch(`/quizzes?pageIndex=${page - 1}`, { immediate: immediate });
 }
 
 export function useQuizResult(quizId: string, answers: any) {
