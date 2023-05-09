@@ -44,12 +44,12 @@ function Quizzes() {
       </>
     );
   }
-  
+
   return (
     <>
       <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
       {quizzes.data.data.map((quiz: any) =>
-        <QuizCard key={quiz.id} id={quiz.id} title={quiz.title} author={'TODO'} questionsCount={quiz.questionsCount}>
+        <QuizCard key={quiz.id} id={quiz.id} title={quiz.title} author={quiz.author.username} questionsCount={quiz.questionsCount}>
           {quiz.description}
         </QuizCard>,
       )}
