@@ -14,6 +14,7 @@ import Login from './routes/login';
 import Quiz from './routes/quiz';
 import Quizzes from './routes/quizzes';
 import QuizResult from './routes/result';
+import UserQuizzes from './routes/userQuizzes';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -26,8 +27,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="quizzes/:quizId" element={<Quiz />} />
           <Route path="quizzes/:quizId/result" element={<QuizResult />} />
 
+          <Route path="users/:userId" element={<UserQuizzes />} />
+
           <Route path="login" element={<Login />} />
-          
+
           <Route
             path="*"
             element={

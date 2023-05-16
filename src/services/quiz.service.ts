@@ -4,9 +4,13 @@ export function useQuiz(quizId: string) {
   return useFetch(`/quizzes/${quizId}`);
 }
 
-export function useQuizzes(page: number, immediate: boolean = true) {
+export function useQuizzes(page: number, immediate: boolean = true, user: string | undefined = undefined) {
   if (!page) page = 1;
-  return useFetch(`/quizzes?pageIndex=${page - 1}`, { immediate: immediate });
+  if (user === undefined) {
+    return useFetch(`/quizzes?pageIndex=${page - 1}`, { immediate: immediate });
+  } else {
+    return useFetch(`/quizzes?pageIndex=${page - 1}&authorId=${user}`, { immediate: immediate });
+  }
 }
 
 export function useQuizResult(quizId: string, answers: any) {
