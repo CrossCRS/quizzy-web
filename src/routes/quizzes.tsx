@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'react-router-dom';
 
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 import QuizCard from '../components/QuizCard';
+import QuizCardSkeleton from '../components/QuizCardSkeleton';
 import SimplePaginator from '../components/SimplePaginator';
 import { useQuizzes } from '../services/quiz.service';
 
@@ -31,7 +32,11 @@ function Quizzes() {
 
   if (quizzes.isLoading) {
     return (
-      <Loader />
+      // <Loader />
+      <>
+        <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
+        <QuizCardSkeleton count={10} />
+      </>
     );
   }
 
