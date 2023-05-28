@@ -36,7 +36,7 @@ function Login() {
       </Alert>
       <h1 className='text-gray-400 text-center m-0 mb-8'>Log in</h1>
       
-      <Box className='p-8 md:p-12'>
+      <Box border className='p-8 md:p-12'>
         <form className='flex flex-col gap-6' onSubmit={handleSubmit}>
           <TextInput placeholder='Email' name='email' onChange={handleChange} />
           <TextInput type='password' placeholder='Password' name='password' onChange={handleChange} />

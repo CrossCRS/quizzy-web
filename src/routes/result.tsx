@@ -52,7 +52,7 @@ function QuizResult() {
     <>
       <h1 className='text-gray-400 text-center m-0 mb-8'>Results</h1>
       
-      <Box>
+      <Box border>
         <div className='flex flex-col items-center'>
           <h2>{quiz.data.title}</h2>
           <ProgressRing radius={90} progress={Math.round((results.data.pointsScored / results.data.pointsMax) * 100)} />
@@ -60,7 +60,7 @@ function QuizResult() {
         </div>
       </Box>
 
-      <Box>
+      <Box border>
         <h2 className='text-center'>Your answers</h2>
         <ul className='flex flex-col divide-y list-none'>
           {results.data.questions.map((question: any) => 
