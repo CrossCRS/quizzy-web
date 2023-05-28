@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import Box from '../components/Box';
-import Loader from '../components/Loader';
 import ProgressRing from '../components/ProgressRing';
 import QuestionPanel from '../components/QuestionPanel';
 import { useQuiz, useQuizResult } from '../services/quiz.service';
@@ -25,7 +24,18 @@ function QuizResult() {
 
   if (quiz.isLoading || results.isLoading) {
     return (
-      <Loader />
+      <>
+        <h1 className='text-gray-400 text-center m-0 mb-8'>Results</h1>
+        
+        {/* Result box skeleton. Transition won't work if moved into it's own component */}
+        <Box>
+          <div className='flex flex-col items-center'>
+            <div className='w-32 h-6 my-4 bg-gray-200 animate-pulse' />
+            <ProgressRing radius={90} progress={0} />
+            <div className='w-64 h-4 my-4 bg-gray-200 animate-pulse' />
+          </div>
+        </Box>
+      </>
     );
   }
 
