@@ -47,8 +47,21 @@ function Quiz() {
 
   return (
     <>
-      <h1 className='text-gray-400 text-center m-0 mb-8'>{quiz.data.title}</h1>
-      <Box>
+      <Box border>
+        <div>
+          <div className='flex justify-between'>
+            <div>
+              <h3 className='my-0'>{quiz.data.title}</h3>
+              <span className='text-gray-400 font-light text-sm my-0'>by {quiz.data.author.username}</span>
+            </div>
+            <div>
+              <span className='font-light'>Question {currentQuestion + 1} / {quiz.data.questionsCount}</span>
+            </div>
+          </div>
+          <div className='my-6 h-3 border rounded bg-white'>
+            <div className='bg-emerald-500 h-full transition-all duration-150 ease-in-out' style={{ width: `${((currentQuestion + 1) / quiz.data.questionsCount) * 100}%` }}></div>
+          </div>
+        </div>
         <QuestionPanel question={quiz.data.questions[currentQuestion]} onSendAnswer={processAnswer} isLastQuestion={currentQuestion == quiz.data.questionsCount - 1} />
       </Box>
     </>
