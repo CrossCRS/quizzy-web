@@ -70,7 +70,13 @@ function UserQuizzes() {
       <AuthorCard author={user.data} />
       <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
       {quizzes.data.data.map((quiz: any) =>
-        <QuizCard key={quiz.id} id={quiz.id} title={quiz.title} author={quiz.author} questionsCount={quiz.questionsCount}>
+        <QuizCard 
+          key={quiz.id} 
+          id={quiz.id} 
+          title={quiz.title} 
+          author={quiz.author} 
+          questionsCount={quiz.questionsCount}
+          createdAt={Intl.DateTimeFormat(navigator.language, { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' }).format(Date.parse(quiz.createdAt))}>
           {quiz.description}
         </QuizCard>,
       )}
