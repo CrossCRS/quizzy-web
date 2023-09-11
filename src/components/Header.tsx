@@ -12,7 +12,7 @@ function Header() {
           </TextLink>
         </div>
         <div className='text-center text-sm md:text-base'>
-          <TextLink to='/quizzes'>Browse</TextLink>
+          <TextLink to='/quizzes?page=1'>Browse</TextLink>
           <TextLink to='/create'>Create</TextLink>
           <TextLink to='/login'>Log in</TextLink>
           <TextLink to='/signup'>Sign up</TextLink>

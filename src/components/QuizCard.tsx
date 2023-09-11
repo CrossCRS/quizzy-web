@@ -26,7 +26,7 @@ function QuizCard(props: Props) {
     <Box hoverable>
       <h4 className='m-0'>{props.title}</h4>
       <div className='font-light text-sm text-gray-500 gap-4 grid grid-cols-3 mt-4 md:mt-0 md:flex'>
-        <div className='flex flex-col md:flex-row md:gap-1 items-center text-center'><FontAwesomeIcon icon={faUser} /> <TextLink dark nopadding to={`/users/${props.author.id}`}><strong>{props.author.username}</strong></TextLink></div>
+        <div className='flex flex-col md:flex-row md:gap-1 items-center text-center'><FontAwesomeIcon icon={faUser} /> <TextLink dark nopadding to={`/users/${props.author.id}?page=1`}><strong>{props.author.username}</strong></TextLink></div>
         <div className='flex flex-col md:flex-row md:gap-1 items-center text-center'><FontAwesomeIcon icon={faClipboardQuestion} /> {props.questionsCount} {props.questionsCount == 1 ? 'question' : 'questions'}</div>
         <div className='flex flex-col md:flex-row md:gap-1 items-center text-center'><FontAwesomeIcon icon={faCalendarDays} /> {props.createdAt}</div>
       </div>
