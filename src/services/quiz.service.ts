@@ -9,7 +9,7 @@ export function useQuizzes(page: number, immediate: boolean = true, user: string
   if (user === undefined) {
     return useFetch(`/quizzes?pageIndex=${page - 1}`, { immediate: immediate });
   } else {
-    return useFetch(`/quizzes?pageIndex=${page - 1}&authorId=${user}`, { immediate: immediate });
+    return useFetch(`/quizzes?pageIndex=${page - 1}&authorUsername=${user}`, { immediate: immediate });
   }
 }
 

@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="quizzes/:quizId" element={<Quiz />} />
           <Route path="quizzes/:quizId/result" element={<QuizResult />} />
 
-          <Route path="users/:userId" element={<UserQuizzes />} />
+          <Route path="users/:userName" element={<UserQuizzes />} />
 
           <Route path="login" element={<Login />} />
 

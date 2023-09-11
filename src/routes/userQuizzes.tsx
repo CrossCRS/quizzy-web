@@ -16,8 +16,8 @@ function UserQuizzes() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [pageCount, setPageCount] = useState(0);
 
-  const quizzes = useQuizzes(Number(searchParams.get('page') as string), false, params.userId as string);
-  const user = useUser(params.userId as string);
+  const quizzes = useQuizzes(Number(searchParams.get('page') as string), false, params.userName as string);
+  const user = useUser(params.userName as string);
 
   // Fetch quizzes on search parameters change
   useEffect(() => {
@@ -80,7 +80,7 @@ function UserQuizzes() {
           {quiz.description}
         </QuizCard>,
       )}
-      <SimplePaginator url={`/users/${user.data.id}`} pageCount={pageCount} currentPage={Number(searchParams.get('page') as string)} />
+      <SimplePaginator url={`/users/${user.data.username}`} pageCount={pageCount} currentPage={Number(searchParams.get('page') as string)} />
     </>
   );
 }
