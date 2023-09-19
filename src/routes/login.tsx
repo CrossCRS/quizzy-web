@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 import Box from '../components/Box';
 import Alert from '../components/core/Alert';
@@ -9,18 +10,31 @@ import Button from '../components/core/Button';
 import TextInput from '../components/core/TextInput';
 import TextLink from '../components/core/TextLink';
 import useAlert from '../hooks/useAlert';
+import { useAuth } from '../hooks/useAuth';
+import axiosInstance from '../services/axiosInstance';
 
 function Login() {
   const [inputs, setInputs] = useState({ email: null, password: null });
   const [isSending, setIsSending] = useState(false);
+  const navigate = useNavigate();
   
   const alert = useAlert();
+  const auth = useAuth();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsSending(true);
-    // TODO: Login
-    //alert.show('Invalid email or password', { type: 'error' });
+
+    axiosInstance.post('/auth/login', inputs).then((r) => {
+      if (!r.data.result) {
+        alert.show('Invalid email or password', { type: 'error' });
+        setIsSending(false);
+      } else {
+        auth.setData?.(r.data.token, r.data.username);
+        navigate('/');
+      }
+      console.log(r.data);
+    });
   };
 
   const handleChange = (e: ChangeEvent) => {

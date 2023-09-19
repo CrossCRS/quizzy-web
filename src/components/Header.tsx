@@ -1,8 +1,11 @@
 import React from 'react';
 
+import { useAuth } from '../hooks/useAuth';
 import TextLink from './core/TextLink';
 
 function Header() {
+  const auth = useAuth();
+  
   return (
     <header className='w-full p-2 bg-emerald-500 fixed z-10 md:relative'>
       <div className='max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center'>
@@ -14,8 +17,14 @@ function Header() {
         <div className='text-center text-sm md:text-base'>
           <TextLink to='/quizzes?page=1'>Browse</TextLink>
           <TextLink to='/create'>Create</TextLink>
-          <TextLink to='/login'>Log in</TextLink>
-          <TextLink to='/signup'>Sign up</TextLink>
+          {auth.token ? 
+            <TextLink to='/logout'>Logout</TextLink> 
+            :
+            <>
+              <TextLink to='/login'>Login</TextLink>
+              <TextLink to='/signup'>Sign up</TextLink>
+            </>
+          }
         </div>
       </div>
     </header>
