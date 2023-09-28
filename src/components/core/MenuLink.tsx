@@ -2,6 +2,7 @@
 /* (c) Norbert Budzyński 2023 */
 import React from 'react';
 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
@@ -9,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 interface Props {
   className?: string,
   to?: string,
-  icon?: any,
+  icon?: IconProp | null,
   children?: React.ReactNode,
   [x:string]: any;
 }
