@@ -14,6 +14,7 @@ import {
   arrow,
   FloatingArrow,
 } from '@floating-ui/react';
+import { faCircleUser, faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faPowerOff, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -68,7 +69,7 @@ function HeaderAvatarMenu() {
             <div className='bg-white rounded shadow-md pb-1'>
               <h4 className='m-0 p-4 font-bold'>{auth.username}</h4>
               <ul className='flex flex-col items-start list-none'>
-                <li><MenuLink to='/profile' className='font-normal' icon={faUser}>Profile</MenuLink></li>
+                <li><MenuLink to='/profile' className='font-normal' icon={faCircleUser}>Profile</MenuLink></li>
                 <li><MenuLink to='/logout' className='font-normal' icon={faPowerOff}>Logout</MenuLink></li>
               </ul>
             </div>
