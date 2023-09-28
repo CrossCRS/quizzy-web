@@ -34,6 +34,9 @@ function Login() {
         navigate('/');
       }
       console.log(r.data);
+    }).catch((err) => {
+      alert.show('Could not login. Please try again later.', { type: 'error' });
+      setIsSending(false);
     });
   };
 
@@ -58,7 +61,10 @@ function Login() {
             <Button color='emerald' className='w-full' type='submit' disabled={isSending}>
               {isSending ? <FontAwesomeIcon icon={faSpinner} size='lg' pulse /> : 'Log in'}
             </Button>
-            <TextLink light nohover to='/passwordreset'>Forgot your password?</TextLink>
+            <div className='flex flex-col items-center pt-4'>
+              <TextLink light nohover to='/passwordreset'>Forgot your password?</TextLink>
+              <TextLink light className='font-normal' nohover to='/signup'>Create a new account</TextLink>
+            </div>
           </div>
         </form>
       </Box>

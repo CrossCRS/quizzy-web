@@ -11,7 +11,7 @@ function App() {
       <div>
         <Header />
 
-        <div className="w-full pt-28 md:pt-2">
+        <div className="w-full pt-2">
           <main className="max-w-4xl mx-auto pt-8">
             <Outlet />
           </main>
