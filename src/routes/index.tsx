@@ -11,7 +11,6 @@ function Index() {
     <div className='flex flex-col justify-center items-center'>
       <h1 className='font-pretty text-6xl text-gray-600 text-center mt-10 mb-20'>Catchy slogan <span className='text-emerald-500'>here</span></h1>
       <Button link to={'/quizzes/'} color='emerald' className='text-3xl py-6 px-10'>Browse all quizzes</Button>
-      Username = {auth.username}
     </div>
   );
 }

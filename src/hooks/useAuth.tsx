@@ -9,17 +9,17 @@ interface Props {
 
 interface IAuthContext {
   token: string | null,
-  username?: string,
+  username: string | null,
   setData?: (newToken: string, newUsername: string) => void,
   clearData?: () => void,
 }
 
-const AuthContext = createContext<IAuthContext>({ token: null });
+const AuthContext = createContext<IAuthContext>({ token: null, username: null });
 
 const AuthProvider = ({ children }: Props) => {
   // State to hold the authentication token
   const [token, setTokenState] = useState<string | null>(localStorage.getItem('token'));
-  const [username, setUsernameState] = useState<string | undefined>();
+  const [username, setUsernameState] = useState<string | null>(localStorage.getItem('username'));
 
   // Function to set the authentication token
   const setData = (newToken: string, newUsername: string) => {
@@ -30,18 +30,20 @@ const AuthProvider = ({ children }: Props) => {
   // Function to clear tokens
   const clearData = () => {
     setTokenState(null);
-    setUsernameState(undefined);
+    setUsernameState(null);
   };
 
   useEffect(() => {
-    if (token) {
+    if (token && username) {
       axios.defaults.headers.common.Authorization = 'Bearer ' + token;
       localStorage.setItem('token', token);
+      localStorage.setItem('username', username);
     } else {
       delete axios.defaults.headers.common.Authorization;
       localStorage.removeItem('token');
+      localStorage.removeItem('username');
     }
-  }, [token]);
+  }, [token, username]);
 
   // Memoized value of the authentication context
   const contextValue = useMemo(

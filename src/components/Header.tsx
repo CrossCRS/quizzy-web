@@ -3,9 +3,9 @@ import React from 'react';
 import { faList, faPlus, faRightToBracket, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { useAuth } from '../hooks/useAuth';
 import TextLink from './core/TextLink';
-import HeaderAvatar from './HeaderAvatar';
+import HeaderAvatarMenu from './HeaderAvatarMenu';
+import { useAuth } from '../hooks/useAuth';
 
 function Header() {
   const auth = useAuth();
@@ -22,14 +22,9 @@ function Header() {
           <TextLink to='/quizzes?page=1'><FontAwesomeIcon icon={faList} size='lg' /></TextLink>
           <TextLink to='/create'><FontAwesomeIcon icon={faPlus} size='lg' /></TextLink>
           {auth.token ? 
-            <>
-              {/* <TextLink to='/logout'>Logout</TextLink> */}
-              <HeaderAvatar />
-            </>
+              <HeaderAvatarMenu />
             :
-            <>
               <TextLink to='/login'><FontAwesomeIcon icon={faRightToBracket} size='lg' /></TextLink>
-            </>
           }
         </div>
       </div>
