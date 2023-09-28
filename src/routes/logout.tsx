@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 
-function Logout() {
+function LogoutPage() {
   const navigate = useNavigate();
 
   const auth = useAuth();
@@ -16,4 +16,4 @@ function Logout() {
   );
 }
 
-export default Logout;
+export default LogoutPage;

@@ -6,16 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Box from './Box';
 import Button from './core/Button';
 import TextLink from './core/TextLink';
-
-interface Author {
-  id: number,
-  username: string,
-}
+import { User } from '../interfaces/user.interface';
 
 interface Props {
-  id: number
+  id: string
   title: string,
-  author: Author,
+  author: User,
   createdAt: string,
   questionsCount: number,
   children: React.ReactNode,

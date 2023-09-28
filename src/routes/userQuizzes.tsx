@@ -8,6 +8,7 @@ import AuthorCardSkeleton from '../components/AuthorCardSkeleton';
 import QuizCard from '../components/QuizCard';
 import QuizCardSkeleton from '../components/QuizCardSkeleton';
 import SimplePaginator from '../components/SimplePaginator';
+import { Quiz } from '../interfaces/quiz.interface';
 import { useQuizzes } from '../services/quiz.service';
 import { useUser } from '../services/user.service';
 
@@ -47,7 +48,7 @@ function UserQuizzes() {
     );
   }
 
-  if (quizzes.error || user.error) {
+  if (quizzes.error || quizzes.data == null || user.error || user.data == null) {
     return (
       <>
         <h1 className='text-gray-400 text-center m-0 mb-1'>Browse</h1>
@@ -69,7 +70,7 @@ function UserQuizzes() {
     <>
       <AuthorCard author={user.data} />
       <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
-      {quizzes.data.data.map((quiz: any) =>
+      {quizzes.data.data.map((quiz: Quiz) =>
         <QuizCard 
           key={quiz.id} 
           id={quiz.id} 

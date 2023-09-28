@@ -2,16 +2,10 @@ import React from 'react';
 
 import Box from './Box';
 import Counter from './core/Counter';
-
-interface Author {
-  id: number,
-  username: string,
-  avatarUrl?: string,
-  createdQuizzesCount: string,
-}
+import { User } from '../interfaces/user.interface';
 
 interface Props {
-  author: Author,
+  author: User,
 }
 
 function AuthorCard({ author }: Props) {
@@ -22,7 +16,7 @@ function AuthorCard({ author }: Props) {
         <h2 className='font-semibold text-gray-800 m-0 mb-8'>{author.username}</h2>
 
         <div className='flex justify-around w-full md:w-1/2 mb-4'>
-          <Counter label='Quizzes Created' value={author.createdQuizzesCount} />
+          <Counter label='Quizzes Created' value={String(author.createdQuizzesCount) || '0'} />
           <Counter label='Followers' value='0' />
         </div>
       </div>

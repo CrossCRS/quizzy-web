@@ -4,7 +4,7 @@ import Box from '../components/Box';
 import Button from '../components/core/Button';
 import { useAuth } from '../hooks/useAuth';
 
-function Index() {
+function IndexPage() {
   const auth = useAuth();
   
   return (
@@ -15,4 +15,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default IndexPage;

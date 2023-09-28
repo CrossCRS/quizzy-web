@@ -6,9 +6,10 @@ import { useSearchParams } from 'react-router-dom';
 import QuizCard from '../components/QuizCard';
 import QuizCardSkeleton from '../components/QuizCardSkeleton';
 import SimplePaginator from '../components/SimplePaginator';
+import { Quiz } from '../interfaces/quiz.interface';
 import { useQuizzes } from '../services/quiz.service';
 
-function Quizzes() {
+function QuizzesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [pageCount, setPageCount] = useState(0);
 
@@ -40,7 +41,7 @@ function Quizzes() {
     );
   }
 
-  if (quizzes.error) {
+  if (quizzes.error || quizzes.data == null) {
     return (
       <>
         <h1 className='text-gray-400 text-center m-0 mb-1'>Browse</h1>
@@ -60,7 +61,7 @@ function Quizzes() {
   return (
     <>
       <h1 className='text-gray-400 text-center m-0 mb-8'>Browse</h1>
-      {quizzes.data.data.map((quiz: any) =>
+      {quizzes.data.data.map((quiz: Quiz) =>
         <QuizCard 
           key={quiz.id} 
           id={quiz.id} 
@@ -76,4 +77,4 @@ function Quizzes() {
   );
 }
 
-export default Quizzes;
+export default QuizzesPage;

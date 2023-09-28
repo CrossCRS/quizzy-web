@@ -8,10 +8,10 @@ export interface FetchOptions {
   immediate?: boolean
 }
 
-function useFetch(url: string, options: FetchOptions = {}) {
+function useFetch<Type>(url: string, options: FetchOptions = {}) {
   const { requestData = null, method = 'GET', immediate = true } = options;
 
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Type | null>(null);
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 

@@ -13,7 +13,7 @@ import useAlert from '../hooks/useAlert';
 import { useAuth } from '../hooks/useAuth';
 import axiosInstance from '../services/axiosInstance';
 
-function Login() {
+function LoginPage() {
   const [inputs, setInputs] = useState({ email: null, password: null });
   const [isSending, setIsSending] = useState(false);
   const navigate = useNavigate();
@@ -72,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;

@@ -10,12 +10,12 @@ import {
 import App from './App';
 import './index.css';
 import AuthProvider from './hooks/useAuth';
-import Index from './routes';
-import Login from './routes/login';
-import Logout from './routes/logout';
-import Quiz from './routes/quiz';
-import Quizzes from './routes/quizzes';
-import QuizResult from './routes/result';
+import IndexPage from './routes';
+import LoginPage from './routes/login';
+import LogoutPage from './routes/logout';
+import QuizPage from './routes/quiz';
+import QuizzesPage from './routes/quizzes';
+import QuizResultPage from './routes/result';
 import UserQuizzes from './routes/userQuizzes';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -24,16 +24,16 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Index />} />
+            <Route index element={<IndexPage />} />
 
-            <Route path="quizzes" element={<Quizzes />} />
-            <Route path="quizzes/:quizId" element={<Quiz />} />
-            <Route path="quizzes/:quizId/result" element={<QuizResult />} />
+            <Route path="quizzes" element={<QuizzesPage />} />
+            <Route path="quizzes/:quizId" element={<QuizPage />} />
+            <Route path="quizzes/:quizId/result" element={<QuizResultPage />} />
 
             <Route path="users/:userName" element={<UserQuizzes />} />
 
-            <Route path="login" element={<Login />} />
-            <Route path="logout" element={<Logout />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="logout" element={<LogoutPage />} />
 
             <Route
               path="*"

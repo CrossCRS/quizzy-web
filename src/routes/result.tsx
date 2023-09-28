@@ -5,9 +5,10 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Box from '../components/Box';
 import ProgressRing from '../components/ProgressRing';
 import QuestionPanel from '../components/QuestionPanel';
+import { Question } from '../interfaces/quiz.interface';
 import { useQuiz, useQuizResult } from '../services/quiz.service';
 
-function QuizResult() {
+function QuizResultPage() {
   const params = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function QuizResult() {
     );
   }
 
-  if (quiz.error || results.error) {
+  if (quiz.error || quiz.data == null || results.error || results.data == null) {
     return (
       <>
         <h1 className='text-gray-400 text-center m-0 mb-1'>Results</h1>
@@ -63,7 +64,7 @@ function QuizResult() {
       <Box border>
         <h2 className='text-center'>Your answers</h2>
         <ul className='flex flex-col divide-y list-none'>
-          {results.data.questions.map((question: any) => 
+          {results.data.questions.map((question: Question) => 
             <li key={question.id} className='py-6 first:pt-0 last:pb-0'>
               <QuestionPanel question={question} readOnly />
             </li>,
@@ -74,4 +75,4 @@ function QuizResult() {
   );
 }
 
-export default QuizResult;
+export default QuizResultPage;

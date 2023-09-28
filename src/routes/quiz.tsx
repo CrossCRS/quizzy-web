@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import QuestionPanel from '../components/QuestionPanel';
 import { useQuiz } from '../services/quiz.service';
 
-function Quiz() {
+function QuizPage() {
   const params = useParams();
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ function Quiz() {
     );
   }
 
-  if (quiz.error || quiz.data == null) {
+  if (quiz.error || quiz.data == null || quiz.data.questions == undefined) {
     return (
       <>
         <h1 className='text-gray-400 text-center m-0 mb-1'>Quiz</h1>
@@ -37,11 +37,13 @@ function Quiz() {
   }
 
   const processAnswer = (answerId: number) => {
-    addAnswer(quiz.data.questions[currentQuestion].id, answerId);
-    if (currentQuestion < quiz.data.questionsCount - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      navigate('result', { state: userAnswers });
+    if (quiz.data != null && quiz.data.questions != undefined) {
+      addAnswer(quiz.data.questions[currentQuestion].id, answerId);
+      if (currentQuestion < quiz.data.questionsCount - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        navigate('result', { state: userAnswers });
+      }
     }
   };
 
@@ -68,4 +70,4 @@ function Quiz() {
   );
 }
 
-export default Quiz;
+export default QuizPage;

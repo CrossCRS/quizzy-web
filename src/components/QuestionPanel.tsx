@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 import Button from './core/Button';
 import RadioButton from './core/RadioButton';
+import { Answer, Question } from '../interfaces/quiz.interface';
 
 type SendAnswerHandler = (answerId: number) => void;
 
 interface Props {
-  question: any,
+  question: Question,
   isLastQuestion?: boolean,
   readOnly?: boolean,
   onSendAnswer?: SendAnswerHandler,
@@ -32,7 +33,7 @@ function QuestionPanel(props: Props) {
     <>
       <p className='text-lg text-center'>{props.question.text}</p>
       <ul className='my-4 list-none'>
-        {props.question.answers.map((answer: any) =>
+        {props.question.answers.map((answer: Answer) =>
           <li key={`a_${answer.id}`}>
             <RadioButton readOnly={props.readOnly} correct={answer.isCorrect} incorrect={answer.isChosen && !answer.isCorrect} id={`a_${answer.id}`} name={`q_${props.question.id}`} value={`${answer.id}`} onChange={answerOnClick}>
               {answer.text}
